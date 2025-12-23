@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Additional packages installed ✅
+
+- `framer-motion` — for animations
+- `react-icons` — icon components
+- `shadcn` UI — initialized with `npx shadcn@latest init` and a sample `Button` component added
+- `three` — for 3D graphics and rendering
+- `next-themes` — theme management and dark/light switching (provider enabled)
+
+## Theme support
+
+The app is configured to use class-based dark mode via Tailwind (`darkMode: 'class'`) and `next-themes` is enabled. A small `ThemeToggle` is available at the top of the sample `Hero` component to switch between light and dark themes.
+
+## Local development
+
+- Start dev server: `npm run dev` (if port 3000 is busy Next will use a free port, e.g., 3001)
+
+## Example files
+
+- `app/components/Hero.tsx` — sample component demonstrating `framer-motion`, `react-icons`, and the `Button` from `components/ui/button.tsx`
