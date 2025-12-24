@@ -70,9 +70,9 @@ export default function Waitlist() {
                   transition={{ duration: 0.6 }}
                   className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] mb-6 tracking-tight"
                 >
-                  One infrastructure. <br />
-                  Two use cases. <br />
-                  <span className="text-accent">Zero compromise.</span>
+                  One Integration, <br />
+                  Every Crypto Payment <br />
+                  <span className="text-accent">Experience.</span>
                 </motion.h1>
 
                 <motion.p
