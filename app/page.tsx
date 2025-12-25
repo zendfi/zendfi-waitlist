@@ -11,26 +11,26 @@ import Starfield from "@/components/star-field"
 
 export default function Waitlist() {
   const HoverBorderBtn = ({ children, href, newTab = false, className = "" }: { children: React.ReactNode; href: string; newTab?: boolean; className?: string }) => {
-  return (
-    <Link 
-      href={href} 
-      target={newTab ? "_blank" : undefined} 
-      rel={newTab ? "noopener noreferrer" : undefined}
-      className={`relative group block w-full sm:w-auto rounded-lg overflow-hidden p-[1px] h-12 ${className}`}
-    >
-      {/* 1. The Moving Line (Hidden by default, spins on hover) */}
-      <div className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,theme(colors.accent.DEFAULT)_10%,transparent_20%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
-      {/* 2. The Static Border (Visible by default, hidden on hover if you want the line to replace it, or kept for contrast) */}
-      <div className="absolute inset-0 bg-border opacity-100 group-hover:opacity-0 transition-opacity duration-300" />
+    return (
+      <Link
+        href={href}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
+        className={`relative group block w-full sm:w-auto rounded-lg overflow-hidden p-[1px] h-12 ${className}`}
+      >
+        {/* 1. The Moving Line (Hidden by default, spins on hover) */}
+        <div className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,theme(colors.accent.DEFAULT)_10%,transparent_20%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      {/* 3. The Body (Solid background, sits on top of the effects) */}
-      <div className="relative flex h-full w-full items-center justify-center gap-2 rounded-lg bg-background px-8 text-sm font-medium text-foreground z-10">
-        {children}
-      </div>
-    </Link>
-  );
-};
+        {/* 2. The Static Border (Visible by default, hidden on hover if you want the line to replace it, or kept for contrast) */}
+        <div className="absolute inset-0 bg-border opacity-100 group-hover:opacity-0 transition-opacity duration-300" />
+
+        {/* 3. The Body (Solid background, sits on top of the effects) */}
+        <div className="relative flex h-full w-full items-center justify-center gap-2 rounded-lg bg-background px-8 text-sm font-medium text-foreground z-10">
+          {children}
+        </div>
+      </Link>
+    );
+  };
   return (
     <section className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
 
@@ -71,8 +71,8 @@ export default function Waitlist() {
                   className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] mb-6 tracking-tight"
                 >
                   One Integration, <br />
-                  Every Crypto Payment <br />
-                  <span className="text-accent">Experience.</span>
+                  Every  <span className="text-accent">Crypto</span> Payment <br />
+                  Experience.
                 </motion.h1>
 
                 <motion.p
@@ -214,27 +214,27 @@ export default function Waitlist() {
                 Delegate payment authority with bounded risk, instant settlement, and simple integration.
               </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
-    <HoverBorderBtn href="https://docs.zendfi.tech">
-        <BookOpen size={18} />
-        Documentation
-    </HoverBorderBtn>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-3xl mx-auto">
+                <HoverBorderBtn href="https://docs.zendfi.tech">
+                  <BookOpen size={18} />
+                  Documentation
+                </HoverBorderBtn>
 
-    <HoverBorderBtn href="https://blog.zendfi.tech" newTab>
-        <FileText size={18} />
-        Blog
-    </HoverBorderBtn>
+                <HoverBorderBtn href="https://blog.zendfi.tech" newTab>
+                  <FileText size={18} />
+                  Blog
+                </HoverBorderBtn>
 
-    <HoverBorderBtn href="https://discord.gg/PyN2nzBG4E" newTab>
-        <FaDiscord size={18} />
-        Join our Discord
-    </HoverBorderBtn>
+                <HoverBorderBtn href="https://discord.gg/PyN2nzBG4E" newTab>
+                  <FaDiscord size={18} />
+                  Join our Discord
+                </HoverBorderBtn>
 
-    <HoverBorderBtn href="https://x.com/zendfi_" newTab>
-        <FaXTwitter size={18} />
-        @zendfi_
-    </HoverBorderBtn>
-</div>
+                <HoverBorderBtn href="https://x.com/zendfi_" newTab>
+                  <FaXTwitter size={18} />
+                  @zendfi_
+                </HoverBorderBtn>
+              </div>
             </div>
           </motion.div>
         </div>
