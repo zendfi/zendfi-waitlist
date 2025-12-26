@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
+import { toast } from "sonner"
 
 export default function WaitlistForm() {
   const [firstName, setFirstName] = useState("")
@@ -15,9 +16,7 @@ export default function WaitlistForm() {
   const [referralSource, setReferralSource] = useState("")
   const [country, setCountry] = useState("")
   const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [waitlistId, setWaitlistId] = useState<string | null>(null)
 
   const validate = () => {
     if (!firstName.trim() || !lastName.trim() || !email.trim()) {
@@ -37,9 +36,7 @@ export default function WaitlistForm() {
     e.preventDefault()
     if (!validate()) return
     setLoading(true)
-    setMessage(null)
     setError(null)
-    setWaitlistId(null)
 
     const payload: Record<string, unknown> = {
       email,
@@ -65,8 +62,8 @@ export default function WaitlistForm() {
 
       if (res.ok) {
         const successMsg = data?.message ?? "Successfully joined the waitlist! We'll notify you when ZendFi launches."
-        setMessage(successMsg)
-        if (data?.waitlist_id) setWaitlistId(String(data.waitlist_id))
+        const toastMsg = data?.waitlist_id ? `${successMsg} ID: ${String(data.waitlist_id)}` : successMsg
+        toast.success(toastMsg)
         // Reset form
         setFirstName("")
         setLastName("")
@@ -78,10 +75,14 @@ export default function WaitlistForm() {
         setReferralSource("")
         setCountry("")
       } else {
-        setError(data?.message ?? "Something went wrong. Try again.")
+        const errMsg = data?.message ?? "Something went wrong. Try again."
+        setError(errMsg)
+        toast.error(errMsg)
       }
     } catch (err) {
-      setError("Network error. Please try again.")
+      const errMsg = "Network error. Please try again."
+      setError(errMsg)
+      toast.error(errMsg)
     } finally {
       setLoading(false)
     }
@@ -158,18 +159,14 @@ export default function WaitlistForm() {
         </div>
 
         {error && <div className="text-sm text-destructive" role="alert">{error}</div>}
-        {message && (
-          <div className="text-sm text-green-600" role="status">
-            {message} {waitlistId && <span className="ml-2">ID: <code>{waitlistId}</code></span>}
-          </div>
-        )}
+
 
         <div className="flex gap-3">
           <Button type="submit" className="w-full bg-accent text-white hover:bg-accent/90" size="lg" disabled={loading} aria-label="Join waitlist">
             {loading ? "Joining…" : "Join the Waitlist"}
           </Button>
           <Button type="button" variant="outline" size="lg" className="w-full border-border/30" onClick={() => {
-            setFirstName(""); setLastName(""); setEmail(""); setCompany(""); setRole(""); setInterestType(""); setMessageText(""); setReferralSource(""); setCountry(""); setError(null); setMessage(null); setWaitlistId(null);
+            setFirstName(""); setLastName(""); setEmail(""); setCompany(""); setRole(""); setInterestType(""); setMessageText(""); setReferralSource(""); setCountry(""); setError(null);
           }} aria-label="Reset form">
             Reset
           </Button>
