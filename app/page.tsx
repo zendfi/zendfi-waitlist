@@ -51,7 +51,7 @@ export default function Waitlist() {
           <div className="flex items-center gap-4">
             <Link href="https://docs.zendfi.tech" className="text-sm text-muted-foreground hover:text-accent">Docs</Link>
             <Link href="https://github.com/zendfi" className="text-sm text-muted-foreground hover:text-accent">Github</Link>
-            <Link href="https://discord.gg/PyN2nzBG4E" className="text-sm text-muted-foreground hover:text-accent">Community</Link>
+            <Link href="https://discord.gg/3QJnnwuXSs" className="text-sm text-muted-foreground hover:text-accent">Community</Link>
           </div>
         </div>
       </header>
@@ -225,7 +225,7 @@ export default function Waitlist() {
                   Blog
                 </HoverBorderBtn>
 
-                <HoverBorderBtn href="https://discord.gg/PyN2nzBG4E" newTab>
+                <HoverBorderBtn href="https://discord.gg/3QJnnwuXSs" newTab>
                   <FaDiscord size={18} />
                   Join our Discord
                 </HoverBorderBtn>
