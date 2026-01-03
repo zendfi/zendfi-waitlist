@@ -62,7 +62,7 @@ export default function WaitlistForm() {
 
       if (res.ok) {
         const successMsg = data?.message ?? "Successfully joined the waitlist! We'll notify you when ZendFi launches."
-        const toastMsg = data?.waitlist_id ? `${successMsg} ID: ${String(data.waitlist_id)}` : successMsg
+        const toastMsg = data?.waitlist_id ? `${successMsg}` : successMsg
         toast.success(toastMsg)
         // Reset form
         setFirstName("")
